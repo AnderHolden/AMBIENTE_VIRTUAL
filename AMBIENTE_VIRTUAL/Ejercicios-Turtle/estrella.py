@@ -1,7 +1,8 @@
 import turtle
+from PIL import Image
 
 t = turtle.Turtle()
-t.speed(0) #Velocidad de la tortuga
+t.speed(0)  # Velocidad de la tortuga
 s = turtle.Screen()
 s.bgcolor("black")
 
@@ -12,9 +13,14 @@ for x in range(360):
     t.width(x // 100 + 1)
     t.forward(x)
     t.left(59)
-#Guardar imagen
 
+# Guardar imagen
 turtle.getscreen().getcanvas().postscript(file="estrella.eps")
+
+# Convertir EPS a PNG
+img = Image.open("estrella.eps")
+img.save("estrella.png")
+
 turtle.done()
 
 
